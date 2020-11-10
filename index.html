@@ -9,27 +9,24 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="jumbotron">
-            <h1 class="display-4">Jogo de Bingo</h1>
-            <p class="lead">A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.</p>
-            <hr class="my-4">
-            <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
-            <button type="button" class="btn btn-primary col-sm-3">Gerar Cartela</button>
-            <button type="button" class="btn btn-primary col-sm-3">Sortear Números</button>
-            <button type="button" class="btn btn-danger col-sm-3">Reiniciar Jogo</button>
-          </div>
-        </div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Jogo de Bingo</h1>
+          <p class="lead">A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.</p>
+          <hr class="my-3">
+          <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
+          <button type="button" class="btn btn-primary col-sm-3">Gerar Cartela</button>
+          <button type="button" class="btn btn-primary col-sm-3">Sortear Números</button>
+          <button type="button" class="btn btn-danger col-sm-3">Reiniciar Jogo</button>
       </div>
     </div>
   </header>
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <table class="table table-dark ">
+        <table class="table table-hover table-dark text-center">
           <thead>
+            <h5>CartelaCartela</h5>
             <tr>
               <th scope="col">1 - 20</th>
               <th scope="col">21 - 40</th>
@@ -66,8 +63,9 @@
         </table>
       </div>
       <div class="col-sm-6">
-        <table class="table table-dark" style="text-align: center;">
+        <table class="table table-hover table-dark text-center">
           <thead>
+            <h5>Números Sorteados</h5>
             <tr>
               <th scope="col">1 - 20</th>
               <th scope="col">21 - 40</th>
