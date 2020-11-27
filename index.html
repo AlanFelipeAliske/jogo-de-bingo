@@ -11,24 +11,23 @@
   <header>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">Jogo de Bingo</h1>
+        <h1 class="display-3">Jogo de Bingo</h1>
           <p class="lead">A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.</p>
           <hr class="my-3">
           <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
           <button type="button" onclick="gerarCartela()" id="gerarCartela" class="btn btn-primary mt-1 col-sm-3">Gerar Cartela</button>
-          <button type="button" id="" class="btn btn-primary mt-1 col-sm-3">Sortear Números</button>
-          <button type="button" onclick="reiniciar()" id="" class="btn btn-danger mt-1 col-sm-3">Reiniciar Jogo</button>
+          <button type="button" onclick="sortearNumeros()" id="" class="btn btn-primary mt-1 col-sm-3">Sortear Números</button>
+          <button type="button" onclick="reiniciar()" id="btRemover" class="btn btn-danger mt-1 col-sm-3">Reiniciar Jogo</button>
       </div>
     </div>
   </header>
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <table class="table table-hover table-dark text-center">
-          <ul id="lista"></ul>
-          <ul id="lista"></ul>
+        <table class="table table-hover table-active text-center">
+          <!--<ul id="lista"></ul>-->
           <thead>
-            <h3 class="text-center">Cartela</h3>
+            <h3 class="text-center font-weight-normal">Cartela</h3>
             <tr>
               <th scope="col">1 - 20</th>
               <th scope="col">21 - 40</th>
@@ -37,68 +36,68 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td class="numero1"></td>
+              <td class="numero6"></td>
+              <td class="numero11"></td>
             </tr>
             <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td class="numero2"></td>
+              <td class="numero7"></td>
+              <td class="numero12"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="numero3"></td>
+              <td class="numero8"></td>
+              <td class="numero13"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="numero4"></td>
+              <td class="numero9"></td>
+              <td class="numero14"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="numero5"></td>
+              <td class="numero10"></td>
+              <td class="numero15"></td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="col-sm-6">
-        <table class="table table-hover table-dark text-center">
+        <table class="table table-hover table-active text-center">
           <thead>
-            <h3 class="text-center">Números Sorteados</h3>
+            <h3 class="text-center font-weight-normal">Números Sorteados</h3>
             <tr>
-              <th scope="col">1 - 20</th>
-              <th scope="col">21 - 40</th>
-              <th scope="col">41 - 60</th>
+              <th scope="col"></th>
+              <th scope="col">1 - 60</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td class="sorteado1"></td>
+              <td class="sorteado6"></td>
+              <td class="sorteado11"></td>
             </tr>
             <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td class="sorteado2"></td>
+              <td class="sorteado7"></td>
+              <td class="sorteado12"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="sorteado3"></td>
+              <td class="sorteado8"></td>
+              <td class="sorteado13"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="sorteado4"></td>
+              <td class="sorteado9"></td>
+              <td class="sorteado14"></td>
             </tr>
             <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td class="sorteado5"></td>
+              <td class="sorteado10"></td>
+              <td class="sorteado15"></td>
             </tr>
           </tbody>
         </table>
@@ -106,10 +105,10 @@
     </div>
   </div>
   <footer>
-    <div class="jumbotron jumbotron-fluid mb-0">
+    <div class="jumbotron jumbotron-fluid mb-0 mt-4">
       <div class="container">
-        <h1 class="display-4">Jogo de Bingo</h1>
-          <p class="lead">A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.</p>
+        <h1 class="display-4"></h1>
+          <p class="lead"></p>
           <hr class="my-2">
       </div>
     </div>
