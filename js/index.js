@@ -4,22 +4,53 @@ let numeros = [];
 let numeros2 = [];
 let numeros3 = [];
 let numeroSorteados = [];
-//var itens = lista.getElementsByTagName('li');
-//let lis = 1;
+var quantia = 0;
+var quantosAcertos = [];
 var bool = false;
+var clicadoSortearNumeros = false;
+var clicadoGerarCartela = false;
 
-
+//Função do botão Gerar Cartela
 function gerarCartela(){
-    numeroAleatorio();
-    numerosGerados();
-    console.log(numeros);
-    console.log(numeros2);
-    console.log(numeros3);
-    bool = true;
-    console.log(bool)
-
+    if(!clicadoGerarCartela){
+        numeroAleatorio();
+        numerosGerados();
+        bool = true;
+        clicadoSortearNumeros = false;
+        clicadoGerarCartela = true;
+    }
 }
 
+//Verifica quais números foram sorteados iguis aos da cartela
+function verificAcertos() {
+    for(z = 0; z < 5; z++){
+        for(f = 0; f < 15; f++){
+            if(numeros[z] === numeroSorteados[f]){
+                quantia = quantia + 1;
+                quantosAcertos[quantia - 1] = numeroSorteados[f];
+            }
+            if(numeros2[z] === numeroSorteados[f]){
+                quantia = quantia + 1;
+                quantosAcertos[quantia - 1] = numeroSorteados[f];
+            }
+            if(numeros3[z] === numeroSorteados[f]){
+                quantia = quantia + 1;
+                quantosAcertos[quantia - 1] = numeroSorteados[f];
+            }
+        }
+    }
+}
+
+//Mostra o container para o usuário com os acertos
+function acertos() {
+    var quaisNumeros = document.getElementsByClassName('quais-numeros')[0];
+    quaisNumeros.innerHTML = ('Total de acertos ') + quantia;
+
+    var acerto = document.getElementsByClassName('quantos-acertos')[0];
+    acerto.innerHTML = ('Números acertados ') + quantosAcertos.sort((a, b) => a - b);
+}
+
+//Gera os números aleatórios
 function numeroAleatorio() {
     while (numeros.length < 5) {
         var aleatorio = Math.floor(Math.random() * (20 - 1 + 1) ) + 1;
@@ -44,42 +75,31 @@ function numeroAleatorio() {
     }
 }
 
-
-
-function sortearNumeros(){
-    if (bool == true){
-        while (numeroSorteados.length < 15) {
-            var aleatorio = Math.floor(Math.random() * (60 - 1 + 1) ) + 1;
-            if (numeroSorteados.indexOf(aleatorio) == -1){
-                numeroSorteados.push(aleatorio);
-                numeroSorteados.sort((a, b) => a - b);
+//Função do botão Sortear Números
+function sortearNumeros() {
+    if(!clicadoSortearNumeros){
+        if (bool == true){
+            while (numeroSorteados.length < 15) {
+                var aleatorio = Math.floor(Math.random() * (60 - 1 + 1) ) + 1;
+                if (numeroSorteados.indexOf(aleatorio) == -1){
+                    numeroSorteados.push(aleatorio);
+                    numeroSorteados.sort((a, b) => a - b);
+                }
             }
+            mostrarNumeros();
+            verificAcertos();
+            acertos();
+            document.getElementsByClassName('resultados')[0].style.display = 'block';
+        }else{
+            window.alert('Primeiro você precisa Gerar a Cartela');
         }
-        mostrarNumeros();
-    }else{
-        window.alert('Primeiro você precisa Gerar a Cartela');
+        clicadoSortearNumeros = true;
     }
+    
 }
 
-
-
-
-
-
-/*
-function sortearNumeros(){
-    while (numeroSorteados.length < 15) {
-        var aleatorio = Math.floor(Math.random() * (60 - 1 + 1) ) + 1;
-        if (numeroSorteados.indexOf(aleatorio) == -1){
-            numeroSorteados.push(aleatorio);
-            numeroSorteados.sort((a, b) => a - b);
-        }
-    }
-    mostrarNumeros();
-}
-*/
-
-function reiniciar(){
+//Função do botão Reiniciar Jogo
+function reiniciar() {
     while(numeros.length) {
         numeros.pop();
     }
@@ -92,25 +112,21 @@ function reiniciar(){
     while(numeroSorteados.length) {
         numeroSorteados.pop();
     }
+    while(quantosAcertos.length) {
+        quantosAcertos.pop();
+    }
     limpaCartela();
     limpaNumeroSorteado();
+    quantia = 0;
+
+    document.getElementsByClassName('resultados')[0].style.display = 'none';
+
     bool = false;
-
-    console.log(numeros);
-    console.log(numeros2);
-    console.log(numeros3);
-    console.log(numeroSorteados);
-    console.log(bool)
-
-    /*for(var j = 0; j < 15; j++){
-        document.getElementsByClassName('cartela')[0].remove();
-    }*/
-
-    //lista.appendChild(item).remove();
-    //document.getElementById('lista').remove();
+    clicadoGerarCartela = false;
+    clicadoSortearNumeros = false;
 }
 
-function numerosGerados(){
+function numerosGerados() {
     var numero1 = document.getElementsByClassName('numero1')[0];
     numero1.innerHTML = numeros[0];
     var numero2 = document.getElementsByClassName('numero2')[0];
@@ -143,7 +159,7 @@ function numerosGerados(){
     numero15.innerHTML = numeros3[4];
 }
 
-function limpaCartela(){
+function limpaCartela() {
     var numero1 = document.getElementsByClassName('numero1')[0];
     numero1.innerHTML = '';
     var numero2 = document.getElementsByClassName('numero2')[0];
@@ -176,7 +192,7 @@ function limpaCartela(){
     numero15.innerHTML = '';
 }
 
-function mostrarNumeros(){
+function mostrarNumeros() {
     var sorteado1 = document.getElementsByClassName('sorteado1')[0];
     sorteado1.innerHTML = numeroSorteados[0];
     var sorteado2 = document.getElementsByClassName('sorteado2')[0];
@@ -209,7 +225,7 @@ function mostrarNumeros(){
     sorteado15.innerHTML = numeroSorteados[14];
 }
 
-function limpaNumeroSorteado(){
+function limpaNumeroSorteado() {
     var sorteado1 = document.getElementsByClassName('sorteado1')[0];
     sorteado1.innerHTML = '';
     var sorteado2 = document.getElementsByClassName('sorteado2')[0];

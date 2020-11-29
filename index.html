@@ -14,18 +14,28 @@
         <h1 class="display-3">Jogo de Bingo</h1>
           <p class="lead">A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.</p>
           <hr class="my-3">
-          <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
           <button type="button" onclick="gerarCartela()" id="gerarCartela" class="btn btn-primary mt-1 col-sm-3">Gerar Cartela</button>
           <button type="button" onclick="sortearNumeros()" id="" class="btn btn-primary mt-1 col-sm-3">Sortear Números</button>
           <button type="button" onclick="reiniciar()" id="btRemover" class="btn btn-danger mt-1 col-sm-3">Reiniciar Jogo</button>
       </div>
     </div>
   </header>
+  <div class="container resultados" style="display: none;">
+    <table class="table table-hover table-active rounded-bottom">
+      <tbody>
+        <tr>
+          <td colspan="6" class="quais-numeros"></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="quantos-acertos"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <table class="table table-hover table-active text-center">
-          <!--<ul id="lista"></ul>-->
+        <table class="table table-hover table-active text-center rounded-bottom">
           <thead>
             <h3 class="text-center font-weight-normal">Cartela</h3>
             <tr>
@@ -64,7 +74,7 @@
         </table>
       </div>
       <div class="col-sm-6">
-        <table class="table table-hover table-active text-center">
+        <table class="table table-hover table-active text-center rounded-bottom">
           <thead>
             <h3 class="text-center font-weight-normal">Números Sorteados</h3>
             <tr>
@@ -114,7 +124,6 @@
     </div>
   </footer>
 </body>
- 
   <script src="js/index.js"></script>
 </html>
 
