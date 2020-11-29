@@ -3,6 +3,7 @@
 URL Para acessar o jogo: https://alanfelipealiske.github.io/jogo-de-bingo/
 
 Jogos de Bingo são atividades frequentemente utilizados como eventos sociais, bem como atividades de captação de recursos para ações de caridade, com premiação para os vencedores. Mas acima de tudo, é uma boa alternativa de lazer. Além disso, é um ótimo exemplo para a aprendizagem de linguagens de programação, pois utilizam-se vários conceitos no seu desenvolvimento. Tais como: Uso de variáveis, números aleatórios, matrizes e comandos de repetição.
+
 A associação do bairro onde você reside, solicitou o desenvolvimento de um programa que gere as cartelas e o sorteio dos números, para um bingo beneficente. Para isso, você deverá desenvolver um protótipo do programa.
 
 
