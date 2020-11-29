@@ -95,7 +95,6 @@ function sortearNumeros() {
         }
         clicadoSortearNumeros = true;
     }
-    
 }
 
 //Função do botão Reiniciar Jogo
